@@ -1,14 +1,20 @@
-<app-loader *ngIf="!chart"></app-loader>
-<ngx-charts-area-chart
-   *ngIf="chart"
-   [scheme]="chart.colors"
-   [results]="chart.data"
-   [gradient]=true
-   [xAxis]=true
-   [yAxis]=true
-   [showXAxisLabel]=true
-   [showYAxisLabel]=true
-   [xAxisLabel]="chart.label_x"
-   [yAxisLabel]="chart.label_y"
-   (select)="onSelect($event)">
- </ngx-charts-area-chart>
+<div class="app-chart">
+  <div class="app-chart--loaded">
+    <ngx-charts-area-chart
+       *ngIf="chart"
+       [scheme]="chart.colors"
+       [results]="chart.data"
+       [gradient]=true
+       [autoScale]=true
+       [animations]=true
+       [xAxis]=true
+       [yAxis]=true
+       [showXAxisLabel]=true
+       [showYAxisLabel]=true
+       [xAxisLabel]="chart.label_x"
+       [yAxisLabel]="chart.label_y"
+       (select)="onSelect($event)">
+     </ngx-charts-area-chart>
+   </div>
+   <app-loader *ngIf="!chart"></app-loader>
+</div>

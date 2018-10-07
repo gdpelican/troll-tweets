@@ -1,22 +1,22 @@
+require 'require_all'
 require 'sinatra/activerecord'
-require './backend/constants'
-require 'byebug'
+require_all './backend/queries'
 
 class Query < ActiveRecord::Base
   store_accessor :value
 
   def self.perform(key)
-    (
+    serialize(
       find_by(key: key) ||
-      create(key: key, value: value_for(key))
-    ).serialize
+      create(key: key, value: class_for(key).new.query!)
+    )
   end
 
-  def self.value_for(key)
-    Constants.serializers[key].call(Constants.queries[key].call)
+  def self.serialize(query)
+    class_for(query.key).new.serialize(query.value)
   end
 
-  def serialize
-    Constants.settings[key].merge(data: value)
+  def self.class_for(key)
+    "Queries::#{key.to_s.classify}".constantize
   end
 end

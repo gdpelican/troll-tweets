@@ -3,7 +3,10 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 export const ChartEndpoints = {
-  hourly: 'summary/published/hourly'
+  hourly:  'summary/published/hourly',
+  daily:   'summary/published/daily',
+  monthly: 'summary/published/monthly',
+  yearly:  'summary/published/yearly'
 }
 
 export interface Chart {
