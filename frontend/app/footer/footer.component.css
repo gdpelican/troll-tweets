@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz');
+
+.app-footer {
+  box-shadow: 0 0 5px black;
+  color: white;
+  background: url('/assets/img/backgrounds/dark.png');
+  font-size: 20px;
+  text-align: center;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  padding: 15px;
+}
+
+.app-footer .created-by,
+.app-footer .get-in-touch {
+  padding: 10px 0;
+}
+.app-footer .get-in-touch a {
+  width: 40px;
+  display: inline-block;
+}
+
+.app-footer a { color: white; }
+
+.app-footer .fa {
+  padding: 0 15px;
+}
+
+.app-footer img {
+  height: 25px;
+  padding: 0 5px;
+  position: relative;
+  top: 5px;
+  border-radius: 100%;
+}
+
+.app-footer .copyright {
+  font-size: 14px;
+}
+
+.app-footer .copyright-symbol {
+  font-family: initial;
+}
+
+.no-radius { border-radius: 0 !important; }

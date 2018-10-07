@@ -16,7 +16,6 @@ export class ChartComponent implements OnInit {
   ngOnInit() {
     this.chartService.fetch(this.name).subscribe((chart: Chart) => {
       this.chart = chart
-      console.log(chart)
     })
   }
 
