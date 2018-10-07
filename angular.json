@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "russian-troll-tweets": {
+    "troll-tweets": {
       "root": "",
       "sourceRoot": "frontend",
       "projectType": "application",
@@ -25,7 +25,9 @@
             "styles": [
               "frontend/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/moment/min/moment.min.js"  
+            ]
           },
           "configurations": {
             "production": {
@@ -50,19 +52,19 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "russian-troll-tweets:build",
+            "browserTarget": "troll-tweets:build",
             "proxyConfig": "proxy.conf.json"
           },
           "configurations": {
             "production": {
-              "browserTarget": "russian-troll-tweets:build:production",
+              "browserTarget": "troll-tweets:build:production",
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "russian-troll-tweets:build"
+            "browserTarget": "troll-tweets:build"
           }
         },
         "lint": {
@@ -80,5 +82,5 @@
       }
     },
   },
-  "defaultProject": "russian-troll-tweets"
+  "defaultProject": "troll-tweets"
 }

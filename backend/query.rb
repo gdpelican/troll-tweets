@@ -1,18 +1,22 @@
 require 'sinatra/activerecord'
+require './backend/constants'
+require 'byebug'
 
 class Query < ActiveRecord::Base
   store_accessor :value
 
   def self.perform(key)
-    find_by(key: key)
-    if existing = find_by(key: key)
-      existing.value
-    else
-      create(
-        key: key,
-        value: yield.to_h,
-        query: (yield.to_sql if yield.respond_to?(:to_sql))
-      )
-    end
+    (
+      find_by(key: key) ||
+      create(key: key, value: value_for(key))
+    ).serialize
+  end
+
+  def self.value_for(key)
+    Constants.serializers[key].call(Constants.queries[key].call)
+  end
+
+  def serialize
+    Constants.settings[key].merge(data: value)
   end
 end
