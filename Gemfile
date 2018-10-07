@@ -1,0 +1,11 @@
+source 'https://rubygems.org'
+
+gem 'puma'
+gem 'sinatra'
+gem 'sinatra-contrib'
+gem 'sinatra-activerecord'
+gem 'activerecord-postgres-hstore'
+gem 'rake'
+gem 'pg'
+gem 'postgres-copy'
+gem 'byebug'
