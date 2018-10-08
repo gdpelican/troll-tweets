@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_05_031050) do
+ActiveRecord::Schema.define(version: 2018_10_08_063759) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,9 @@ ActiveRecord::Schema.define(version: 2018_10_05_031050) do
     t.string "tco2_step1"
     t.string "tco3_step1"
     t.integer "tweet_hour"
+    t.index ["author"], name: "index_tweets_on_author"
+    t.index ["following"], name: "index_tweets_on_following"
+    t.index ["publish_date"], name: "index_tweets_on_publish_date"
   end
 
 end

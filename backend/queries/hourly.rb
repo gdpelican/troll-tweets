@@ -2,7 +2,7 @@ require './backend/tweet'
 
 module Queries
   class Hourly < Base
-    def query!
+    def query!(args = {})
       summary(:publish_date, :hour)
     end
 

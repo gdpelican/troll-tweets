@@ -2,7 +2,7 @@ require './backend/tweet'
 
 module Queries
   class Base
-    def query!
+    def query!(args = {})
       raise NotImplementedError.new
     end
 
@@ -24,10 +24,19 @@ module Queries
       }
     end
 
+    def yearday_to_date(yearday)
+      year, day = yearday.split('_').map(&:to_i)
+      Date.new(year) + day.days
+    end
+
     def summary(date_column, *date_parts)
-      Tweet.group("CONCAT(#{Array(date_parts).map do |part|
+      Tweet.group(date_part_concat(date_column, *date_parts)).count
+    end
+
+    def date_part_concat(date_column, *date_parts)
+      "CONCAT(#{Array(date_parts).map do |part|
         "date_part('#{part}', #{date_column})"
-      end.join(", '_', ")})").count
+      end.join(", '_', ")})"
     end
   end
 end

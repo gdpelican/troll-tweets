@@ -2,7 +2,7 @@ require './backend/tweet'
 
 module Queries
   class Yearly < Base
-    def query!
+    def query!(args = {})
       summary(:publish_date, :year)
     end
 

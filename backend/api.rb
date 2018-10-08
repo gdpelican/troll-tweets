@@ -21,3 +21,7 @@ end
 get '/summary/published/yearly' do
   json Query.perform(:yearly)
 end
+
+get '/author/followers/:author' do |author|
+  json Query.perform(:author, author: author, cache_key: :"author_#{author}")
+end

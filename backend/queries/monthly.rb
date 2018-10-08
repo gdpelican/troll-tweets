@@ -2,7 +2,7 @@ require './backend/tweet'
 
 module Queries
   class Monthly < Base
-    def query!
+    def query!(args = {})
       summary(:publish_date, :year, :month)
     end
 

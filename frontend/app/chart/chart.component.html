@@ -16,6 +16,20 @@
        [yAxisLabel]="chart.label_y"
        (select)="onSelect($event)">
      </ngx-charts-area-chart>
+     <ngx-charts-line-chart
+        *ngSwitchCase="'line'"
+        [scheme]="chart.colors"
+        [results]="chart.data"
+        [autoScale]=true
+        [animations]=true
+        [xAxis]=true
+        [yAxis]=true
+        [showXAxisLabel]=true
+        [showYAxisLabel]=true
+        [xAxisLabel]="chart.label_x"
+        [yAxisLabel]="chart.label_y"
+        (select)="onSelect($event)">
+      </ngx-charts-line-chart>
      <ngx-charts-bar-vertical
         *ngSwitchCase="'bar'"
         [scheme]="chart.colors"
