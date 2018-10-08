@@ -6,18 +6,19 @@ module Queries
       raise NotImplementedError.new
     end
 
-    def serialize(data)
-      settings.merge(data: transform(data))
+    def serialize(query)
+      settings.merge(data: transform(query.value))
     end
 
     private
 
-    def transform(data)
+    def transform
       raise NotImplementedError.new
     end
 
     def settings
       {
+        type: 'area',
         colors: { domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA'] },
         label_y: 'Number of tweets'
       }

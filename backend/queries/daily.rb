@@ -1,4 +1,5 @@
 require './backend/tweet'
+require 'byebug'
 
 module Queries
   class Daily < Base
@@ -11,12 +12,11 @@ module Queries
     def transform(data)
       [{
         name: 'Tweets per day',
-        series: data.sort.map do |year_day, count|
-          {
-            name: year_day,
-            value: count
-          }
-        end
+        series: data.transform_keys { |key| year, day = key.split('_').map(&:to_i); Date.new(year) + day.days }
+                    .sort
+                    .to_h
+                    .transform_keys { |key| key.strftime('%d %b %Y') }
+                    .map { |name, value| { name: name, value: value } }
       }]
     end
 

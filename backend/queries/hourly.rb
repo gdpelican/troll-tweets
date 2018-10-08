@@ -11,12 +11,11 @@ module Queries
     def transform(data)
       [{
         name: 'Tweets per hour',
-        series: data.transform_keys(&:to_i).sort.map do |hour, count|
-          {
-            name: Time.at(hour.to_i*3600).strftime('%I:%M%p'),
-            value: count
-          }
-        end
+        series: data.transform_keys(&:to_i)
+                    .sort
+                    .to_h
+                    .transform_keys { |key| Time.at(key*3600).strftime('%I:%M %P') }
+                    .map { |name, value| { name: name, value: value } }
       }]
     end
 

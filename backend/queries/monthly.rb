@@ -11,12 +11,9 @@ module Queries
     def transform(data)
       [{
         name: 'Tweets per month',
-        series: data.sort.map do |year_month, count|
-          {
-            name: year_month,
-            value: count
-          }
-        end
+        series: data.transform_keys { |key| Date.new(*key.split('_').map(&:to_i)) }
+                    .sort
+                    .map { |month, count| { name: month.strftime("%b %Y"), value: count } }
       }]
     end
 

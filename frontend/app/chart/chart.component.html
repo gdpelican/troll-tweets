@@ -1,7 +1,8 @@
 <div class="app-chart">
-  <div class="app-chart--loaded">
+  <div class="app-chart--loaded" *ngIf="chart" [ngSwitch]="chart.type">
+    {{chart.type}}
     <ngx-charts-area-chart
-       *ngIf="chart"
+       *ngSwitchCase="'area'"
        [scheme]="chart.colors"
        [results]="chart.data"
        [gradient]=true
@@ -15,6 +16,20 @@
        [yAxisLabel]="chart.label_y"
        (select)="onSelect($event)">
      </ngx-charts-area-chart>
+     <ngx-charts-bar-vertical
+        *ngSwitchCase="'bar'"
+        [scheme]="chart.colors"
+        [results]="chart.data"
+        [gradient]=true
+        [animations]=true
+        [xAxis]=true
+        [yAxis]=true
+        [showXAxisLabel]=true
+        [showYAxisLabel]=true
+        [xAxisLabel]="chart.label_x"
+        [yAxisLabel]="chart.label_y"
+        (select)="onSelect($event)">
+      </ngx-charts-bar-vertical>
    </div>
    <app-loader *ngIf="!chart"></app-loader>
 </div>

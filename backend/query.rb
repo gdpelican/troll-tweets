@@ -6,17 +6,12 @@ class Query < ActiveRecord::Base
   store_accessor :value
 
   def self.perform(key)
-    serialize(
-      find_by(key: key) ||
-      create(key: key, value: class_for(key).new.query!)
-    )
+    klass = "Queries::#{key.to_s.classify}".constantize.new
+    klass.serialize find_by(key: key) || create(key: key, value: klass.query!)
   end
 
-  def self.serialize(query)
-    class_for(query.key).new.serialize(query.value)
-  end
-
-  def self.class_for(key)
-    "Queries::#{key.to_s.classify}".constantize
+  def self.perform!(key)
+    find_by(key: key).destroy
+    perform(key)
   end
 end
