@@ -1,0 +1,9 @@
+<section class="page" [id]="id">
+  <h1>{{ title }}</h1>
+  <article class="content">
+    <div class="text-content">{{content.text}}</div>
+    <div class="chart-content">
+      <app-chart *ngFor="let chart of content.charts" [name]="chart"></app-chart>
+    </div>
+  </article>
+</section>

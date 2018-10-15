@@ -1,9 +1,7 @@
-<main>
-  <h1>Welcome to {{ title }}!</h1>
-  <app-chart name='hourly'></app-chart>
-  <app-chart name='daily'></app-chart>
-  <app-chart name='monthly'></app-chart>
-  <app-chart name='yearly'></app-chart>
-  <app-chart name='author_ten_gop'></app-chart>
-</main>
+<div class="content">
+  <app-header></app-header>
+  <main detect-scroll (onScroll)="handleScroll($event)">
+    <app-page [id]="id" [content]="content(id)" *ngFor="let id of pages()"></app-page>
+  </main>
+</div>
 <app-footer></app-footer>

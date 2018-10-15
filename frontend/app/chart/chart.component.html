@@ -1,6 +1,5 @@
 <div class="app-chart">
   <div class="app-chart--loaded" *ngIf="chart" [ngSwitch]="chart.type">
-    {{chart.type}}
     <ngx-charts-area-chart
        *ngSwitchCase="'area'"
        [scheme]="chart.colors"

@@ -7,7 +7,8 @@ export const ChartEndpoints = {
   daily:   'summary/published/daily',
   monthly: 'summary/published/monthly',
   yearly:  'summary/published/yearly',
-  author_ten_gop: 'author/followers/TEN_GOP'
+  author_ten_gop: 'author/followers/TEN_GOP',
+  author_novostimsk: 'author/followers/NOVOSTIMSK'
 }
 
 export interface Chart {

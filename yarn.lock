@@ -267,6 +267,12 @@
     tree-kill "^1.0.0"
     webpack-sources "^1.1.0"
 
+"@nicky-lenaers/ngx-scroll-to@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@nicky-lenaers/ngx-scroll-to/-/ngx-scroll-to-1.1.1.tgz#0ed2681c321b8f357c8e4f45300fec379ca82467"
+  dependencies:
+    tslib "^1.9.0"
+
 "@schematics/angular@0.8.4":
   version "0.8.4"
   resolved "https://registry.yarnpkg.com/@schematics/angular/-/angular-0.8.4.tgz#ee3c8535476d7b49b1a5676f4a5eee3fc158506f"
@@ -4154,6 +4160,10 @@ negotiator@0.6.1:
 neo-async@^2.5.0:
   version "2.5.2"
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.5.2.tgz#489105ce7bc54e709d736b195f82135048c50fcc"
+
+ngx-scroll-event@^1.0.8:
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/ngx-scroll-event/-/ngx-scroll-event-1.0.8.tgz#d481cab5d147da3f6799a4a58e4d6346de4783aa"
 
 nice-try@^1.0.4:
   version "1.0.5"
