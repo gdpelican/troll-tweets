@@ -5,6 +5,19 @@
   overflow-x: hidden;
 }
 
+.content::after {
+  content: "";
+  background: url('/assets/img/backgrounds/country.jpg');
+  background-size: cover;
+  opacity: 0.6;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
 main {
   overflow: hidden;
   width: 10000%;

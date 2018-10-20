@@ -1,5 +1,5 @@
 <div class="app-chart">
-  <div class="app-chart--loaded" *ngIf="chart" [ngSwitch]="chart.type">
+  <div class="app-chart--loaded card" *ngIf="chart" [ngSwitch]="chart.type">
     <ngx-charts-area-chart
        *ngSwitchCase="'area'"
        [scheme]="chart.colors"
@@ -12,8 +12,7 @@
        [showXAxisLabel]=true
        [showYAxisLabel]=true
        [xAxisLabel]="chart.label_x"
-       [yAxisLabel]="chart.label_y"
-       (select)="onSelect($event)">
+       [yAxisLabel]="chart.label_y">
      </ngx-charts-area-chart>
      <ngx-charts-line-chart
         *ngSwitchCase="'line'"
@@ -26,8 +25,7 @@
         [showXAxisLabel]=true
         [showYAxisLabel]=true
         [xAxisLabel]="chart.label_x"
-        [yAxisLabel]="chart.label_y"
-        (select)="onSelect($event)">
+        [yAxisLabel]="chart.label_y">
       </ngx-charts-line-chart>
      <ngx-charts-bar-vertical
         *ngSwitchCase="'bar'"
@@ -40,8 +38,7 @@
         [showXAxisLabel]=true
         [showYAxisLabel]=true
         [xAxisLabel]="chart.label_x"
-        [yAxisLabel]="chart.label_y"
-        (select)="onSelect($event)">
+        [yAxisLabel]="chart.label_y">
       </ngx-charts-bar-vertical>
    </div>
    <app-loader *ngIf="!chart"></app-loader>
