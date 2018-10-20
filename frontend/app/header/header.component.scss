@@ -1,5 +1,6 @@
 $primary: #5aa750;
 $secondary: #1f1f54;
+$tertiary: #e6e6e6;
 
 header {
   display: flex;
@@ -23,8 +24,7 @@ header {
     li {
       cursor: pointer;
       &.active { color: $primary; }
-      margin: 0 20px 20px;
-      text-shadow: -1px 1px 2px $secondary;
+      margin: 0 5px 20px;
     }
   }
 }

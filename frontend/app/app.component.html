@@ -1,7 +1,7 @@
 <div class="content">
-  <app-header></app-header>
-  <main detect-scroll (onScroll)="handleScroll($event)">
-    <app-page [id]="id" [content]="content(id)" *ngFor="let id of pages()"></app-page>
+  <app-header (onScroll)="onSelect($event)"></app-header>
+  <main [style.left]="offset">
+    <app-page [id]="id" [style.max-height]="height" [content]="content(id)" *ngFor="let id of pages()"></app-page>
   </main>
 </div>
 <app-footer></app-footer>

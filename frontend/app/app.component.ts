@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
 
 import { CONTENT } from './content.constant';
 
@@ -8,6 +9,11 @@ import { CONTENT } from './content.constant';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  public offset: string = '0px';
+  public config: PerfectScrollbarConfigInterface = {};
+
+  constructor(@Inject(DOCUMENT) private document: any) {}
+
   pages = () => {
     return Object.keys(CONTENT);
   }
@@ -16,7 +22,11 @@ export class AppComponent {
     return CONTENT[page];
   }
 
-  handleScroll($event) {
-    console.log($event)
+  onSelect(id) {
+    let page = this.document.getElementById(id);
+    if (page) {
+      this.offset = `-${page.offsetLeft}px`;
+      this.height = `${page.offsetHeight}px`;
+    }
   }
 }

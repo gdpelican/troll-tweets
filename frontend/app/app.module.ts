@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
-import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { ScrollEventModule } from 'ngx-scroll-event';
@@ -29,8 +28,7 @@ import { HeaderComponent } from './header/header.component';
     NgxChartsModule,
     ScrollEventModule,
     BrowserAnimationsModule,
-    AngularFontAwesomeModule,
-    ScrollToModule.forRoot()
+    AngularFontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

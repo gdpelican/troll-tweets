@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 import { CONTENT } from '../content.constant';
 
@@ -8,6 +8,9 @@ import { CONTENT } from '../content.constant';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  active: string;
+
+  @Output() onScroll: EventEmitter<string> = new EventEmitter();
 
   constructor() { }
 
@@ -21,6 +24,7 @@ export class HeaderComponent implements OnInit {
 
   goTo(page:string) {
     this.active = page;
+    this.onScroll.emit(this.active);
   }
 
 }
